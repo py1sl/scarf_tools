@@ -1,4 +1,7 @@
 # scarf_tools
+
+# All tools are work in progress - may not be working at any given point - use at own risk
+
 tools for using with the scarf machine at RAL
 
 
