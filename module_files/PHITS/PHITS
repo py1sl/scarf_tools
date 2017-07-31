@@ -1,0 +1,16 @@
+#%Module1.0#####################################################################
+##
+## PGI modulefile
+##
+proc ModulesHelp { } {
+
+        puts stderr "\tPHITS module"
+}
+
+module-whatis   "Sets environment variables for  PHITS"
+
+set             root             /apps/contrib/neutronics/PHITS/
+
+prepend-path     PATH             $root
+
+source "/apps/modulefiles/modulefiles_include.tcl"

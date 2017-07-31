@@ -1,0 +1,17 @@
+#%Module1.0#####################################################################
+##
+## PGI modulefile
+##
+proc ModulesHelp { } {
+
+        puts stderr "\tSERPENT module"
+}
+
+module-whatis   "Sets environment variables for various SERPENT versions"
+
+set             root             /apps/contrib/neutronics/SERPENT/
+
+prepend-path     PATH             $root
+module           load             intel
+
+source "/apps/modulefiles/modulefiles_include.tcl"

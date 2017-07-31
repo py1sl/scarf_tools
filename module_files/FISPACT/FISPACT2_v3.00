@@ -1,0 +1,16 @@
+#%Module1.0#####################################################################
+##
+## PGI modulefile
+##
+proc ModulesHelp { } {
+
+        puts stderr "\tFISPACT module"
+}
+
+module-whatis   "FISPACT"
+
+set             root             /apps/contrib/neutronics/FISPACT/
+
+prepend-path     PATH             $root
+
+source "/apps/modulefiles/modulefiles_include.tcl"
