@@ -1,6 +1,6 @@
 # scarf_tools
 
-# All tools are work in progress - may not be working at any given point - use at own risk
+# All tools are out of date for current scarf que system and will not work
 
 tools for using with the scarf machine at RAL
 
