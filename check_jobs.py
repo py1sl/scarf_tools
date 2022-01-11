@@ -1,4 +1,6 @@
 """
+This works with LSF que system
+LSF is no longer used on scarf
 """
 
 import numpy as np
@@ -8,32 +10,36 @@ import os
 
 def current_job_nums():
     lines = subprocess.check_output("bjobs")
-    lines=lines.splitlines()
-    lines=lines[1:]
+    lines = lines.splitlines()
+    lines = lines[1:]
     job_nums = []
     for l in lines:
-        l=l.split(" ")
+        l = l.split(" ")
         if l[0] != "":
             job_nums.append(l[0])
     return job_nums
-           
+
+
 def get_lines(path):
     with open(path) as f:
         lines = f.read().splitlines()
     f.close()
     return lines
-    
+
+
 def check_status(jobs):
     all_status = []
     for job in  jobs:
         status = []
         status.append(job)
         lines = subprocess.check_output(["bpeek", job])
-        lines=lines.splitlines()
+        lines = lines.splitlines()
         lines = lines[-3]
-        print lines
+        print(lines)
         all_status.append(status)
-        
+    return all_status
+
+
 def compare_running(fpath):
     """
     assume fpath points to a file with a list of job numbers each on a seperate line
@@ -42,7 +48,6 @@ def compare_running(fpath):
     all_status = []
     job_list = get_lines(fpath)
     running_jobs = current_job_nums()
-     
     for job in job_list:
         status = []
         status.append(job)
@@ -54,12 +59,8 @@ def compare_running(fpath):
     return all_status  
         
 
-
-running_jobs = current_job_nums()
-check_status(running_jobs)
-statlist = compare_running("jlist")
-print statlist
-
-
-
-
+if __name__ == "__main__":
+    running_jobs = current_job_nums()
+    check_status(running_jobs)
+    statlist = compare_running("jlist")
+    print(statlist)
